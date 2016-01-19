@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :projects, dependent: :destroy
   has_many :tasks, dependent: :destroy
+
+  def to_s
+    self.name
+  end
 end

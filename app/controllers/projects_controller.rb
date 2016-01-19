@@ -4,12 +4,13 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.includes(:user, :tasks).all
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @tasks = @project.tasks
   end
 
   # GET /projects/new

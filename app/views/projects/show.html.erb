@@ -10,5 +10,15 @@
   <%= @project.name %>
 </p>
 
+<section>
+  <h3>Tareas</h3>
+  <% @tasks.each_with_index do |task| %>
+    <li>
+      <p><%= task.user %> <%= task.status %></p>
+      <p><%= task.description %></p>
+    </li>
+  <% end %>
+</section>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
