@@ -1,0 +1,38 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.select(:user_id) do %>
+      <% @users.each_with_index do |user, index| %>
+        <%= content_tag(:option, user, value: index) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.select(:project_id) do %>
+      <% @projects.each_with_index do |project, index| %>
+        <%= content_tag(:option, project, value: index) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

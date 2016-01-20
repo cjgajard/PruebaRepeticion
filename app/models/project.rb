@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   def verify_name
     if self.name.blank?
       self.name = "Proyecto #{self.id}"
+      self.save
     end
   end
 

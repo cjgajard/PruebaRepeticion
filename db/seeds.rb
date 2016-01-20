@@ -34,6 +34,7 @@ projects = Project.all
   Task.create(
     user: users.sample,
     project: projects.sample,
-    status: rand(0..2)
+    status: rand(0..2),
+    date: rand(1..7).days.ago
   )
 end

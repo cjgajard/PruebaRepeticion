@@ -36,6 +36,9 @@ gem 'dotenv-rails'
 
 gem 'devise'
 
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'debugger'

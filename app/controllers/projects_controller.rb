@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :tasks_feed]
 
   # GET /projects
   # GET /projects.json
@@ -10,6 +10,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @tasks = @project.tasks
+  end
+
+  def tasks_feed
     @tasks = @project.tasks
   end
 
@@ -26,6 +30,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    @project.user = current_user unless @project.user
 
     respond_to do |format|
       if @project.save
