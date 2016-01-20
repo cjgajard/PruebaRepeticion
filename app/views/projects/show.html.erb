@@ -10,12 +10,16 @@
 
 <section>
   <h3>Tareas</h3>
-  <%# @tasks.each_with_index do |task| %>
-    <!-- <li>
-      <p><%#= task.user %> <%#= task.status %></p>
-      <p><%#= task.description %></p>
-    </li> -->
-  <%# end %>
+  <% @tasks.each_with_index do |task| %>
+    <li>
+      <p><%= task.user %> <%= task.status %></p>
+      <p><%= task.description %></p>
+    </li>
+  <% end %>
+  <%= link_to 'Nueva Tarea', new_task_path %>
+
+  <hr>
+  <h3>Calendario</h3>
   <div id="calendar" class='calendar'></div>
   <script>
     $(document).ready(function () {

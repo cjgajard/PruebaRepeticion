@@ -14,4 +14,8 @@ class Project < ActiveRecord::Base
   def pendings_count
     self.tasks.where('status <> 2').size
   end
+
+  def to_s
+    self.name
+  end
 end
